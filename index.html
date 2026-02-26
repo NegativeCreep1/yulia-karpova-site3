@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Юлія Карпова — Тренер Сили Голосу</title>
+  <meta name="description" content="Психологія впливу та управління станом через звук. Голос, який слухають лідери.">
+  <link rel="canonical" href="https://yuliakarpova.com.ua/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yuliakarpova.com.ua/" />
+  <meta property="og:title" content="Юлія Карпова — Тренер Сили Голосу" />
+  <meta property="og:description" content="Авторська методика «Голос без маски». Навчання для лідерів та топ-менеджменту." />
+  <meta property="og:image" content="https://yuliakarpova.com.ua/og-image.jpg" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim: #7a6428;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --charcoal: #1C1C1C;
+      --off-white: #F5F0E8;
+      --white: #FFFFFF;
+    }
+
+    /* Анімація для модального вікна (щоб воно випливало знизу) */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* Розмиття фону для преміального вигляду */
+    .backdrop-blur-sm {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Інші твої стилі залишай нижче, якщо вони там були */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .cormorant { font-family: 'Cormorant Garamond', serif; }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── GOLD LINE ACCENT ─── */
+    .gold-line { background: linear-gradient(90deg, transparent, var(--gold), transparent); height: 1px; }
+    .gold-text { color: var(--gold); }
+    .gold-border { border-color: var(--gold); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        var(--black);
+    }
+
+    .hero-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(180px, 28vw, 380px);
+      font-weight: 300;
+      line-height: 0.85;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.12);
+      position: absolute;
+      right: -2vw;
+      top: 50%;
+      transform: translateY(-50%);
+      letter-spacing: -0.05em;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 130px);
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(13px, 1.4vw, 16px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      max-width: 420px;
+      line-height: 1.9;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      text-decoration: none;
+      transition: all 0.35s cubic-bezier(.25,.8,.25,1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--gold-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .btn-primary:hover::after { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 17px 36px;
+      text-decoration: none;
+      transition: all 0.35s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold);
+    }
+
+    /* ─── STATS BAR ─── */
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+      font-weight: 400;
+    }
+
+    /* ─── ABOUT SECTION ─── */
+    .about-section { background: var(--dark); position: relative; }
+
+    .about-photo-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .about-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .photo-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+    }
+
+    .about-tag {
+      display: inline-block;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: rgba(201,168,76,0.8);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      font-weight: 400;
+    }
+
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 200px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.06);
+      line-height: 0.7;
+      position: absolute;
+      top: 0; left: -10px;
+      user-select: none;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-section { background: var(--black);
+    scroll-margin-top: 5px; }
+
+    .service-card {
+      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--charcoal);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover { border-color: rgba(201,168,76,0.2); transform: translateY(-4px); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .service-number {
+      position: absolute;
+      top: 32px; right: 36px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .service-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+    }
+
+    .service-feature::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── TESTIMONIAL ─── */
+    .testimonial-section { background: var(--charcoal); }
+
+    .testimonial-card {
+      border-left: 1px solid var(--gold);
+      padding-left: 36px;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 40px; }
+
+    .nav-link {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 400;
+    }
+
+    .nav-link:hover { color: var(--gold); }
+
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-indicator {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    }
+
+    .scroll-line {
+      width: 2px; height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scrollAnim 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollAnim {
+      0%, 100% { opacity: 0.4; transform: scaleY(0.9); }
+      50% { opacity: 2; transform: scaleY(1.2); }
+    }
+
+    /* ─── FADE-IN ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hero-number { display: none; }
+    }
+
+    .scroll-hint-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px; /* Відступ від останнього тексту */
+  gap: 15px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-hint-wrap:hover {
+  opacity: 1;
+}
+
+.scroll-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  writing-mode: vertical-lr; /* Текст вертикально — дуже стильно */
+  transform: rotate(180deg);
+}
+
+.scroll-line-vertical {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line-vertical::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: scroll-anim 2s infinite cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+@keyframes scroll-anim {
+  0% { top: -100%; }
+  50% { top: 0; }
+  100% { top: 100%; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
+<nav style="display: flex; align-items: center; justify-content: space-between; padding: 20px 40px;">
+  
+  <div style="flex: 1; display: flex; justify-content: flex-start;">
+    <a href="#" class="nav-logo">Юлія <span>Карпова</span></a>
+  </div>
+
+  <div class="nav-links" style="display: flex; gap: 30px;">
+    <a href="#about" class="nav-link">Про мене</a>
+    <a href="#services" class="nav-link">Послуги</a>
+    <a href="#tickets" class="nav-link">Квитки</a>
+  </div>
+
+  <div style="flex: 1;"></div>
+
+</nav>
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-number">V</div>
+
+<div class="relative z-10 container mx-auto px-6 pt-32 pb-20 flex flex-col lg:flex-row items-center justify-between">
+    
+    <div class="lg:w-[45%] z-20 mb-12 lg:mb-0">
+        <div class="hero-eyebrow mb-6">Експертка з публічного впливу • Тренерка сили голосу</div>
+        <h1 class="hero-title mb-8 text-white">
+            Ваш голос — <br>
+            ваша <em class="text-gold italic">найсильніша</em><br>
+            зброя
+        </h1>
+        <p class="hero-subtitle mb-10 text-gray-400">
+            Навчу звучати так, щоб вас неможливо було ігнорувати. Авторська методика для лідерів, політиків та підприємців.
+        </p>
+<div class="flex gap-4">
+    <a href="https://concert.ua/uk/event/yulja-karpova" target="_blank" class="btn-primary px-8 py-4 bg-gold text-black font-semibold uppercase tracking-widest text-xs hover:bg-white transition-all duration-300">
+        <span>→ Найближча подія</span>
+    </a>
+</div>
+    </div>
+
+    <div class="lg:w-[45%] relative flex justify-center lg:justify-end">
+        <div class="relative">
+            <div class="absolute top-5 left-5 w-full h-full border border-gold/30 -z-10"></div>
+            
+            <div class="overflow-hidden shadow-2xl">
+                <img src="yulia.webp" alt="Юлія Карпова" 
+                     class="w-full h-auto block grayscale hover:grayscale-0 transition duration-700 transform hover:scale-105"> 
+            </div>
+            
+            <div class="absolute -top-2 -right-2 w-10 h-10 border-t-2 border-r-2 border-gold/50"></div>
+            <div class="absolute -bottom-2 -left-2 w-10 h-10 border-b-2 border-l-2 border-gold/50"></div>
+        </div>
+    </div>
+</div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+   <!-- <div class="hero-eyebrow mb-8">Тренер сили голосу · Спікер · Консультант</div>
+
+    <h1 class="hero-title mb-10">
+      Ваш голос —<br>
+      ваша <em>найсильніша</em><br>
+      зброя
+    </h1>
+
+    <p class="hero-subtitle mb-12">
+      Юлія Карпова навчає лідерів, підприємців і ораторів перетворювати
+      голос на інструмент впевненості, харизми та реального впливу.
+    </p>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="#tickets" class="btn-primary">
+        <span>→ Забронювати місце</span>
+      </a>
+      <a href="#about" class="btn-outline">
+        Дізнатись більше
+      </a>
+    </div>
+  </div> -->
+
+  <!-- Stats bar -->
+  <div class="gold-line mt-20"></div>
+  <div class="relative z-10" style="padding: 40px 60px; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+    <div>
+      <div class="stat-number">1200+</div>
+      <div class="stat-label">учнів пройшли навчання</div>
+    </div>
+    <div>
+      <div class="stat-number">15 років</div>
+      <div class="stat-label">практичного досвіду</div>
+    </div>
+    <div>
+      <div class="stat-number">10+</div>
+      <div class="stat-label">топових брендів-клієнтів</div>
+    </div>
+  </div>
+  <div class="gold-line"></div>
+
+
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<section class="about-section py-32 px-6" id="about">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center;">
+
+    <!-- Photo -->
+<div class="about-photo-wrap fade-up" style="max-width: 460px; position: relative;">
+  <div class="absolute -inset-3 border border-gold/20 -z-10 transform translate-x-2 translate-y-2"></div>
+  
+  <div class="overflow-hidden shadow-2xl">
+    <img src="yulia2.webp" alt="Про Юлію Карпову" 
+         class="w-full h-auto block transition duration-700 object-cover">
+  </div>
+  
+  <div class="absolute -top-1 -right-1 w-6 h-6 border-t border-r border-gold/40"></div>
+  <div class="absolute -bottom-1 -left-1 w-6 h-6 border-b border-l border-gold/40"></div>
+</div>
+
+    <!-- Text -->
+   <div class="fade-up" style="position: relative; padding-top: 40px;">
+  
+  <div class="quote-mark" style="position: absolute; top: -10px; left: -30px; opacity: 0.1; font-size: 120px; font-family: serif; pointer-events: none;">"</div>
+
+<div class="about-tag" style="
+  display: inline-block;
+  padding: 12px 36px; /* Збільшено відступи: 12px зверху/знизу, 36px з боків */
+  border: 2px solid rgba(201, 168, 76, 0.4); /* Товщина рамки 2px замість 1px */
+  color: #C9A84C;
+  text-transform: uppercase;
+  letter-spacing: 0.3em; /* Більша відстань між буквами для преміального вигляду */
+  font-size: 14px; /* Було 10px, тепер 14px — напис став значно більшим */
+  font-weight: 600; /* Додано жирності тексту */
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+">
+  Про Юлію
+</div>
+
+<h2 class="cormorant mb-8" style="font-size: clamp(32px, 3.5vw, 54px); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em;">
+  15 років у <em style="color: var(--gold); font-style: italic;">медіа</em><br>
+  8 років <em style="color: var(--gold); font-style: italic;">викладання</em>
+</h2>
+
+      <p style="font-size: 14px; line-height: 2; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 24px;">
+        Юлія Карпова — медіапрофесіоналка з колосальним досвідом на радіо та телебаченні <br>
+        Тренерка з публічних виступів та впливу, стратегиня публічної комунікації 
+        
+      </p>
+      <p style="font-size: 14px; line-height: 2; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 48px;">
+        Поєднання техніку голосу, риторики та психології впевненості <br>
+        Навчить говорити на рівні лідерів
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;"> 
+        <div class="service-feature">Експертка з публічного впливу</div>
+        <div class="service-feature">Спікерка бізнес-форумів та конференцій</div>
+        <div class="service-feature">Тренерка впевненості в складних комунікаціях</div>
+        <div class="service-feature">Менторка топ-менеджерів провідних компаній України</div>
+
+          
+
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+</section>
+
+<!-- ══════════════════════════════════ SERVICES ══════════════════════════════════ -->
+<section class="services-section py-12 px-12" id="services">
+  <div style="max-width: 1200px; margin: 0 auto;">
+
+    <div class="gold-line mb-16"></div>
+
+    <div class="fade-up" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <div class="hero-eyebrow mb-6">Послуги та менторство</div>
+      </div>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.35); max-width: 280px; line-height: 1.8; text-align: right;">
+        Від постановки природного голосу до кризових комунікацій на рівні CEO.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      
+      <div class="service-card fade-up" style="display: flex; flex-direction: column; height: 100%; padding: 40px 30px;">
+ <div class="service-number" style="font-size: 16px; margin: 0;">01</div>
+          <div class="service-icon" style="font-size: 20px; margin: 0;">🎤</div>
+        <div style="height: 80px; display: flex; align-items: flex-end; margin-bottom: 20px;">
+          <h3 class="service-title" style="margin-bottom: 0;">Публічне мовлення <br>та риторика</h3>
+        </div>
+        <div style="height: 100px; margin-bottom: 30px;">
+          <p class="service-desc">Структура сильної презентації та вміння відповідати на незручні питання</p>
+        </div>
+        <div style="flex-grow: 1;">
+          <div class="service-feature">Виступ без страху перед аудиторією</div>
+          <div class="service-feature">Впевненість на нарадах</div>
+          <div class="service-feature">Як звучати авторитетно</div>
+        </div>
+        <button onclick="openModal('Публічні виступи та риторика')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+
+      <div class="service-card fade-up" style="display: flex; flex-direction: column; height: 100%; padding: 40px 30px; background: linear-gradient(160deg, #1C1C1C 0%, #161208 100%); border: 1px solid rgba(201,168,76,0.2);">
+<div class="service-number" style="font-size: 16px; margin: 0;">02</div>
+          <div class="service-icon" style="font-size: 20px; margin: 0; color: rgba(201,168,76,0.4);">🔊</div>
+        <div style="height: 80px; display: flex; align-items: flex-end; margin-bottom: 20px;">
+          <h3 class="service-title" style="color: var(--gold); margin-bottom: 0;">Голос<br>як інструмент впливу</h3>
+        </div>
+        <div style="height: 100px; margin-bottom: 30px;">
+          <p class="service-desc" style="color: rgba(255,255,255,0.7);">Авторська методика. Робота з тембром, глибиною та психологією голосу</p>
+        </div>
+        <div style="flex-grow: 1;">
+          <div class="service-feature">Усунення тремтіння голосу</div>
+          <div class="service-feature">Говорити так, щоб слухали</div>
+          <div class="service-feature">Тембр, глибина, дихання</div>
+        </div>
+                <button onclick="openModal('Голос як інструмент впливу')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+
+      <div class="service-card fade-up" style="display: flex; flex-direction: column; height: 100%; padding: 40px 30px;">
+<div class="service-number" style="font-size: 16px; margin: 0;">03</div>
+          <div class="service-icon" style="font-size: 20px; margin: 0;">💎</div>
+        <div style="height: 80px; display: flex; align-items: flex-end; margin-bottom: 20px;">
+          <h3 class="service-title" style="margin-bottom: 0;">Впевненість<br>у публічних ситуаціях</h3>
+        </div>
+        <div style="height: 100px; margin-bottom: 30px;">
+          <p class="service-desc">Робота з внутрішньою опорою. Як не губитися, коли тебе перебивають</p>
+        </div>
+        <div style="flex-grow: 1;">
+          <div class="service-feature">Як витримувати критику</div>
+          <div class="service-feature">Синдром самозванця</div>
+          <div class="service-feature">Страх оцінки</div>
+        </div>
+                <button onclick="openModal('Впевненість у публічних ситуаціях')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px;">
+      
+      <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+        <h4 style="color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Комунікація для топ-менеджменту</h4>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6;">Комунікація в кризі, публічні заяви керівника та внутрішня комунікація в команді</p>
+                <button onclick="openModal('Комунікація для топ-менеджменту')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+
+      <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+        <h4 style="color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Жіноче лідерство через голос</h4>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6;">Як звучати впевнено поруч із чоловіками, не зменшувати себе, Жіночий голос у переговорах</p>
+                <button onclick="openModal('Жіноче лідерство через голос')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+
+      <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+        <h4 style="color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Медіакомунікація та персональний бренд</h4>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6;">Як давати інтерв'ю, формування публічної позиції, голос бренду, Як не “злитися” під час хейту</p>
+                <button onclick="openModal('Медіакомунікація та персональний бренд')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+
+      <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+        <h4 style="color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Персональний коучинг 1:1</h4>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6;">Для CEO, політиків, держслужбовців та експертів перед великими виступами</p>
+                <button onclick="openModal('Персональний коучинг 1:1')" class="btn-outline" style="margin-top: 30px; width: fit-content; font-size: 10px; padding: 14px 28px;">
+  Обрати програму →
+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ TESTIMONIALS ══════════════════════════════════ 
+<section class="testimonial-section py-32 px-6" id="testimonials">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="hero-eyebrow mb-16 text-center">Голоси клієнтів</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 48px;">
+
+      <div class="testimonial-card fade-up">
+        <p class="testimonial-text mb-8">
+          «Після 3 сесій з Юлією я виступив на конференції 500+ людей і отримав овації.
+          Це змінило моє розуміння власних можливостей.»
+        </p>
+        <div class="hero-eyebrow">Олексій Мороз — CEO, TechLviv</div>
+      </div>
+
+      <div class="testimonial-card fade-up" style="transition-delay: 0.2s;">
+        <p class="testimonial-text mb-8">
+          «Я завжди боялась свого голосу. Юлія показала мені, що він — мій найбільший актив.»
+        </p>
+        <div class="hero-eyebrow">Катерина Іванченко — Підприємець</div>
+      </div>
+
+      <div class="testimonial-card fade-up" style="transition-delay: 0.4s;">
+        <p class="testimonial-text mb-8">
+          «Два місяці роботи і переговори зі складними клієнтами стали моєю сильною стороною.
+          Не могу уявити себе без цих навичок.»
+        </p>
+        <div class="hero-eyebrow">Дмитро Ткач — Partner, Kinetic Law</div>
+      </div>
+
+    </div>
+  </div>
+</section>-->
+
+<!-- ══════════════════════════════════ CTA / TICKETS ══════════════════════════════════ -->
+<section class="cta-section py-24 px-6" id="tickets" style="position: relative; overflow: hidden; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1);">
+  <div class="cta-bg" style="opacity: 0.3;"></div>
+  
+  <div class="relative z-10 text-center" style="max-width: 1000px; margin: 0 auto; padding: 60px 20px; border: 1px solid rgba(201,168,76,0.1); background: rgba(255,255,255,0.02); backdrop-filter: blur(5px);">
+    
+    <div class="hero-eyebrow mb-6" style="opacity: 0.6;">Найближча подія</div>
+
+    <h2 class="cormorant fade-up" style="font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 24px; text-transform: uppercase;">
+      <span style="font-size: 16px; display: block; margin-bottom: 15px; letter-spacing: 0.4em; color: rgba(255,255,255,0.5);">Авторський інтенсив</span>
+      <span style="font-size: clamp(32px, 5vw, 64px);">ГОВОРИ, ЩОБ СЛУХАЛИ<br>
+      <em style="color: var(--gold); font-style: italic;">ПРО ВИСТУПИ, ЯКІ НЕ ВТОМЛЮЮТЬ</em></span>
+    </h2>
+
+    <div style="width: 40px; height: 1px; background: var(--gold); margin: 0 auto 24px; opacity: 0.5;"></div>
+
+    <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-bottom: 40px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase;">
+      Київ — 14 березня 2026
+    </p>
+
+    <div class="flex justify-center">
+      <a href="https://concert.ua/uk/event/yulja-karpova" 
+         target="_blank" 
+         class="btn-primary"
+         style="display: inline-flex; align-items: center; text-decoration: none; background: var(--gold); color: black; padding: 20px 45px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; transition: all 0.4s ease;">
+          <span>Придбати квиток</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer class="py-16 px-6">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+    <div>
+      <div class="nav-logo" style="font-size: 26px; margin-bottom: 8px;">Юлія <span style="color: var(--gold);">Карпова</span></div>
+      <div style="font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.2); text-transform: uppercase;">Тренер сили голосу</div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+      <a href="https://www.instagram.com/y.karpova/" class="nav-link" style="font-size: 10px;">Instagram</a>
+      <a href="https://www.facebook.com/yvkarpova?mibextid=wwXIfr&rdid=xrKhZS6I7vr7Z6kM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPjcXiptv%2F%3Fmibextid%3DwwXIfr#" 
+      class="nav-link" style="font-size: 10px;">facebook</a>
+      <a href="mailto:karpova.record.fm@gmail.com" class="nav-link" style="font-size: 10px;">
+  Email
+</a>
+    </div>
+    <div style="font-size: 10px; color: rgba(250, 245, 245, 0.15); letter-spacing: 0.15em;">
+      © 2025 Юлія Карпова
+    </div>
+  </div>
+</footer>
+
+<div id="serviceModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+  <div class="bg-[#1a1a1a] border border-gold/30 p-8 w-full max-w-md relative animate-fade-in">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gold/50 hover:text-gold text-2xl">&times;</button>
+    
+    <h3 class="cormorant text-2xl text-gold mb-2">Записатися на програму</h3>
+    <p id="modalServiceName" class="text-xs uppercase tracking-widest text-white/40 mb-8 italic"></p>
+
+    <form id="telegramForm" class="space-y-6">
+      <input type="hidden" id="selectedService" name="service">
+
+      <div>
+        <label class="block text-[10px] uppercase tracking-widest text-gold/60 mb-2">Ваше ім'я</label>
+        <input type="text" required name="name" class="w-full bg-white/5 border border-white/10 p-3 text-white focus:border-gold/50 outline-none transition-all">
+      </div>
+
+      <div>
+        <label class="block text-[10px] uppercase tracking-widest text-gold/60 mb-2">Телефон</label>
+        <input type="tel" required name="phone" placeholder="+380" class="w-full bg-white/5 border border-white/10 p-3 text-white focus:border-gold/50 outline-none transition-all">
+      </div>
+
+      <button type="submit" class="btn-primary w-full py-4 bg-gold text-black font-semibold uppercase tracking-widest text-[10px]">
+        <span>Надіслати запит →</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  // --- Логіка модального вікна для Юлії Карпової ---
+
+function openModal(serviceName) {
+  const modal = document.getElementById('serviceModal');
+  const serviceInput = document.getElementById('selectedService');
+  const serviceText = document.getElementById('modalServiceName');
+  
+  if (modal && serviceInput && serviceText) {
+    serviceInput.value = serviceName; 
+    serviceText.innerText = serviceName; 
+    
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Вимикаємо скрол сторінки
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('serviceModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto'; // Повертаємо скрол
+  }
+}
+
+// Закриття при кліку на темний фон навколо форми
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('serviceModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+});
+
+// Обробка відправки форми
+// Знаходимо форму
+document.getElementById('telegramForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const token = '8234314695:AAFZudgKcOOMeA38MRFFcuXqm_vb5RF3Ls8';
+  const chatId = 244978047; 
+  
+  const formData = new FormData(this);
+  const name = formData.get('name');
+  const phone = formData.get('phone');
+  const service = formData.get('service');
+
+  // Використовуємо HTML теги замість Markdown для надійності
+  const message = `<b>🔔 НОВА ЗАЯВКА З САЙТУ</b>\n\n` +
+                  `<b>👤 Клієнт:</b> ${name}\n` +
+                  `<b>📞 Телефон:</b> ${phone}\n` +
+                  `<b>🎯 Напрямок:</b> ${service}`;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+      parse_mode: 'HTML' // Змінено на HTML
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert(`Дякуємо, ${name}! Запит надіслано.`);
+      closeModal();
+      this.reset();
+    } else {
+      return response.json().then(data => {
+        alert('Помилка: ' + data.description);
+      });
+    }
+  })
+  .catch(error => {
+    alert('Помилка мережі. Спробуйте пізніше.');
+  });
+});
+</script>
+</body>
+</html>
